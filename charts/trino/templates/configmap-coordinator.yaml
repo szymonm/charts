@@ -103,6 +103,11 @@ data:
   {{- end }}
 {{ end }}
 
+{{ if .Values.coreSiteXml }}
+  core-site.xml: |
+    {{- .Values.coreSiteXml | nindent 4 }}
+{{ end }}
+
 ---
 
 {{- if .Values.accessControl }}{{- if eq .Values.accessControl.type "configmap" }}
